@@ -1,0 +1,27 @@
+\input docstrip
+
+\askforoverwritefalse
+
+\generate{%
+  \file{thesis.cls}{%
+    % 1. Core class logic
+    \from{class.dtx}{class}%
+    %
+    % 2. Required packages and helper functions
+    \from{packages.dtx}{packages}%
+    \from{helper_fn.dtx}{helpers}%
+    %
+    % 3. Main code of class
+    \from{class.dtx}{main}%
+    %
+    % 3. All language segments (the class logic will choose which to use)
+    \from{segments/cover-eng.dtx}{cover-eng}%
+    \from{segments/cover-kor.dtx}{cover-kor}%
+    \from{segments/innercover-eng.dtx}{innercover-eng}%
+    \from{segments/innercover-kor.dtx}{innercover-kor}%
+    \from{segments/abstract-eng.dtx}{abstract-eng}%
+    \from{segments/abstract-kor.dtx}{abstract-kor}%
+  }%
+}
+
+\endbatchfile

@@ -1,0 +1,30 @@
+%<*abstract-eng>
+\newcommand*{\@abstracteng}{
+    \addcontentsline{toc}{section}{Introduction to the Next Part}
+    %
+    %^^A Header
+    \begin{center}
+        \singlespacing
+        %
+        {\fontsize{14pt}{16pt}\selectfont{\@othertitle\footnote{
+        \noindent A thesis submitted to the Council of the Graduate School of Kyungpook National University in partial fulfillment of the requirements for the degree of \@otherdegree in \@otherdate
+        }}\par}
+        \vspace{20pt}
+        %
+        {\fontsize{12pt}{14pt}\selectfont{\@otherauthor}\par}
+        \vspace{20pt}
+        %
+        {\fontsize{10pt}{10pt}\selectfont \@otherdepartment, \@othermajor \par
+        Graduate School, Kyungpook National University}\par  
+        {\fontsize{10pt}{10pt}\selectfont (Supervised by Professor \@othersupervisor)}\par
+        \vspace{20pt}
+    \end{center}
+    %
+    %^^A abstract body
+    {\fontsize{14pt}{16pt}(Abstract)}\par
+    \vspace{20pt}
+    \onehalfspacing
+    \@abstract 
+}
+%</abstract-eng>
+\endinput

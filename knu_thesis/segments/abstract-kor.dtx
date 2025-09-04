@@ -1,0 +1,25 @@
+%<*abstract-kor>
+\newcommand*{\@abstractkor}{
+    \addcontentsline{toc}{section}{Introduction to the Next Part}
+    %
+    %^^A Abstract Header
+    \begin{center}
+        \singlespacing
+        {\fontsize{14pt}{16pt}\selectfont{\@othertitle}\par}
+        \vspace{20pt}
+        %
+        {\fontsize{12pt}{14pt}\selectfont{\@otherauthor}\par}
+        \vspace{20pt}
+        %
+        {\fontsize{10pt}{10pt}\selectfont \@otherdepartment, \@othermajor}\par  {\fontsize{10pt}{10pt}\selectfont (지도교수 \@othersupervisor)}\\
+        \vspace{20pt}
+    \end{center}
+    %
+    %^^A Abstract Body
+    {\fontsize{14pt}{16pt}(초  록)}\par
+    \vspace{20pt}
+    \doublespacing
+    \@abstract 
+}
+%</abstract-kor>
+\endinput

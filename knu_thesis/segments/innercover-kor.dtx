@@ -1,0 +1,61 @@
+%<*innercover-kor>
+\newcommand*{\@innercoverkor}{
+    \begin{titlepage}
+        \begin{center}
+            \vspace*{82pt}
+            %
+            %^^A Title
+            {\fontsize{21pt}{33.6pt}\selectfont{\@title}\par}
+            \vspace{28.4pt}
+            %
+            %^^A Author
+            {\fontsize{14pt}{14pt}\selectfont{\@author}\par}
+            \vspace{28.4pt}
+            %
+            %^^A Department and School
+            {\fontsize{12pt}{19.2pt}\selectfont 대학원 \@department \@major}\par
+            \vspace{28.4pt}
+            %
+            %^^A Supervisor
+            {\fontsize{12pt}{12pt}\selectfont 지도교수 \@supervisor}
+            \vfill
+            %
+            %^^A Approval text
+            {\fontsize{12pt}{14.8pt}\selectfont 홍길동의
+            \if@isphd
+                \@author박사 학위논문을 인준함 
+            \else
+                \@author석사 학위논문을 인준함 
+            \fi
+            }
+            \vspace{28.4pt}
+            %
+            %^^A Date
+            \fontsize{12pt}{14.8pt}\selectfont{\@date}
+            \vspace{28.4pt}
+            %
+            %^^A Signature Fields
+            {\fontsize{12pt}{18pt}\selectfont
+                \begin{flushright}
+                    \begin{tabular}{c l}
+                        위원장 & \underline{\makebox[2in][l]{\raggedbottom\@chairprofessor}~\koreanstamp{인}}\\[2pt]
+                        & \underline{\makebox[2in][l]{\raggedbottom\@secondprofessor}~\koreanstamp{인}}\\[2pt]
+                        & \underline{\makebox[2in][l]{\raggedbottom\@thirdprofessor}~\koreanstamp{인}}\\[2pt]
+                        \if@isphd
+                            & \underline{\makebox[2in][l]{\raggedbottom\@fourthprofessor}~\koreanstamp{인}}\\[2pt]
+                            & \underline{\makebox[2in][l]{\raggedbottom\@fifthprofessor}~\koreanstamp{인}}\\[2pt]
+                        \fi
+                    \end{tabular}
+                \end{flushright}
+            }
+            \vspace{26.4pt}
+            %
+            %^^A University Name
+            {\fontsize{16pt}{22.4pt}\selectfont 경북대학교 대학원}\par
+            \vspace{50pt}        
+        \end{center}
+    \end{titlepage}
+    \pagebreak
+}
+%</innercover-kor>
+\endinput

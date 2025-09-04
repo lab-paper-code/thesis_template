@@ -1,0 +1,13 @@
+%<*helpers>
+%^^A=======================================
+%^^A   Helper Functions
+%^^A=======================================
+%
+%^^A Create an 인 mark for the innercover page
+\newcommand{\koreanstamp}[1]{
+    \begin{tikzpicture}[baseline=(stamp.base)]
+        \node[draw=black, circle, thin, inner sep=0.5pt] (stamp){\fontsize{8pt}{8pt}\selectfont#1};
+    \end{tikzpicture}
+}
+%</helpers>
+\endinput
