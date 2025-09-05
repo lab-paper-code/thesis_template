@@ -29,8 +29,8 @@ The easiest way to get started is to use one of the pre-packaged templates.
 
 1. **Download a Template**: Download the `.zip` file for the template that matches your degree and language needs.
 
-   - **Downlaod PhD Thesis Template (.zip):** [Korean](https://github.com/lmjantsch/thesis_template/raw/refs/heads/main/thesis_templates/master_kor.zip), [Engish](https://github.com/lmjantsch/thesis_template/raw/refs/heads/main/thesis_templates/master_eng.zip)
-   - **Downlaod Masters Thesis Template (.zip):** [Korean](https://github.com/lmjantsch/thesis_template/raw/refs/heads/main/thesis_templates/phd_kor.zip), [Engish](https://github.com/lmjantsch/thesis_template/raw/refs/heads/main/thesis_templates/phd_eng.zip)
+   - **Downlaod PhD Thesis Template (.zip):** [Korean](https://github.com//lab-paper-code/thesis_template/raw/refs/heads/main/thesis_templates/master_kor.zip), [Engish](https://github.com/lab-paper-code/thesis_template/raw/refs/heads/main/thesis_templates/master_eng.zip)
+   - **Downlaod Masters Thesis Template (.zip):** [Korean](https://github.com/lab-paper-code/thesis_template/raw/refs/heads/main/thesis_templates/phd_kor.zip), [Engish](https://github.com/lab-paper-code/thesis_template/raw/refs/heads/main/thesis_templates/phd_eng.zip)
 
 2. **Upload to Overleaf**: On your Overleaf dashboard, click "New Project" and select "Upload Project".
 
@@ -48,7 +48,7 @@ If you want to stay up to date with the current version of `thesis.cls` you can 
 2. **Create a New `thesis.cls`**: Click the "New File" icon, select "From external URL" and paste the following URL to import the latest version of the class file.
 
 ```
-https://raw.githubusercontent.com/lmjantsch/thesis_template/refs/heads/main/thesis.cls
+https://raw.githubusercontent.com/lab-paper-code/thesis_template/refs/heads/main/thesis.cls
 ```
 Make sure the `thesis.cls` is in the root directory.
 
