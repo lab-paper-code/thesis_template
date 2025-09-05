@@ -65,16 +65,16 @@
     \end{tikzpicture}
 }
 \if@iskorean
-    \newcommand{\@ToCheadername}{목\quad차}
-    \newcommand{\@LoTheadername}{<표 차례>}
-    \newcommand{\@LoFheadername}{<그림 차례>}
+    \newcommand{\@ToCheadername}{\fontsize{16pt}{18pt}\selectfont 목\quad차}
+    \newcommand{\@LoTheadername}{\normalfont\fontsize{11pt}{18pt}\selectfont <표 차례>}
+    \newcommand{\@LoFheadername}{\normalfont\fontsize{11pt}{18pt}\selectfont <그림 차례>}
     \newcommand{\@referenceheadername}{참고 문헌}
     \newcommand{\@figurelabelname}{그림}
     \newcommand{\@tablelabelname}{표}
 \else
-    \newcommand{\@ToCheadername}{Content}
-    \newcommand{\@LoTheadername}{List of Tables}
-    \newcommand{\@LoFheadername}{List of Figures}
+    \newcommand{\@ToCheadername}{\fontsize{18pt}{18pt}\selectfont Content}
+    \newcommand{\@LoTheadername}{\fontsize{18pt}{18pt}\selectfont List of Tables}
+    \newcommand{\@LoFheadername}{\fontsize{18pt}{18pt}\selectfont List of Figures}
     \newcommand{\@referenceheadername}{References}
     \newcommand{\@figurelabelname}{Figure}
     \newcommand{\@tablelabelname}{Table}
@@ -95,10 +95,11 @@
     }
 }
 \if@iskorean
-    \setmainfont{NanumGothic}
+    \setmainfont{NanumMyeongjo}
+    \newfontfamily{\coveruniversityfont}{Noto Sans CJK KR}
 \else
     \setmainfont{Times New Roman}
-    \setmainhangulfont[Ligatures=TeX]{NanumGothic}
+    \setmainhangulfont[Ligatures=TeX]{NanumMyeongjo}
 \fi
 \newfontfamily{\pagenumfont}{NanumGothic}
 \renewcommand{\footnotesize}{\fontsize{8pt}{10pt}\selectfont}
@@ -129,7 +130,7 @@
 }
 \renewcommand{\contentsname}{
     \begin{center}
-        \fontsize{18pt}{18pt}\selectfont \@ToCheadername
+        \@ToCheadername
     \end{center}
 }
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
@@ -141,19 +142,19 @@
 \setcounter{tocdepth}{3}
 \renewcommand{\listfigurename}{
     \begin{center}
-        \fontsize{18pt}{18pt}\selectfont \@LoFheadername
+        \@LoFheadername
     \end{center}
 }
-\renewcommand{\cftfigpresnum}{Figure~}
+\renewcommand{\cftfigpresnum}{\@figurelabelname~}
 \renewcommand{\cftfignumwidth}{60pt}
 \renewcommand{\cftfigfont}{{\fontsize{12pt}{12pt}\selectfont}}
 \renewcommand{\cftbeforefigskip}{10pt}
 \renewcommand{\listtablename}{
     \begin{center}
-        \fontsize{18pt}{18pt}\selectfont \@LoTheadername
+        \@LoTheadername
     \end{center}
 }
-\renewcommand{\cfttabpresnum}{Table~}
+\renewcommand{\cfttabpresnum}{\@tablelabelname~}
 \renewcommand{\cfttabnumwidth}{60pt}
 \renewcommand{\cfttabfont}{{\fontsize{12pt}{12pt}\selectfont}}
 \renewcommand{\cftbeforetabskip}{10pt}
@@ -184,7 +185,6 @@
 \renewcommand*{\author}[2]{\renewcommand{\@author}{#1}\newcommand{\@otherauthor}{#2}}
 \newcommand*{\supervisor}[2]{\newcommand{\@supervisor}{#1}\newcommand{\@othersupervisor}{#2}}
 \newcommand*{\department}[2]{\newcommand{\@department}{#1}\newcommand{\@otherdepartment}{#2}}
-\newcommand*{\major}[2]{\newcommand{\@major}{#1} \newcommand{\@othermajor}{#2}}
 \newcommand*{\degree}[2]{\newcommand{\@degree}{#1} \newcommand{\@otherdegree}{#2}}
 \renewcommand*{\date}[2]{\renewcommand{\@date}{#1} \newcommand{\@otherdate}{#2}}
 \renewcommand{\abstract}[1]{\newcommand{\@abstract}{#1}}
@@ -227,8 +227,7 @@
             \vspace{68pt}
             %
             %^^A Department and School
-            {\fontsize{12pt}{19.2pt}\selectfont \@department, \@major}\par
-            {\fontsize{12pt}{12pt}\selectfont The Graduate School}\par
+            {\fontsize{12pt}{19.2pt}\selectfont \@department}\par
             \vspace{56.8pt}
             %
             %^^A Author
@@ -240,8 +239,7 @@
             \vspace{28.4pt}
             %
             %^^A University Name
-            {\fontsize{16pt}{22.4pt}\selectfont The Graduate School}\par
-            {\fontsize{16pt}{0pt}\selectfont Kyungpook National University}\par
+            {\fontsize{16pt}{22.4pt}\selectfont Kyungpook National University\\ Graduate School}\par
             \vspace{50pt}
         \end{center}
     \end{titlepage}
@@ -253,7 +251,7 @@
             \vspace*{82pt}
             %
             %^^A Thesis Type
-            {\fontsize{12pt}{9.6pt}\selectfont 경북대학교 \@degree~학위논문}\par
+            {\fontsize{12pt}{9.6pt}\selectfont 경북대학교 {\@degree}학위논문}\par
             \vspace{56pt}
             %
             %^^A Title
@@ -261,7 +259,7 @@
             \vspace{68pt}
             %
             %^^A Department and School
-            {\fontsize{12pt}{19.2pt}\selectfont 대학원 \@department \@major}\par
+            {\fontsize{12pt}{19.2pt}\selectfont \@department}\par
             \vspace{56.8pt}
             %
             %^^A Author
@@ -273,7 +271,7 @@
             \vspace{28.4pt}
             %
             %^^A University Name
-            {\fontsize{16pt}{22.4pt}\selectfont 경북대학교 대학원}\par
+            {\coveruniversityfont\fontsize{16pt}{22.4pt}\selectfont 경북대학교 대학원}\par
             \vspace{50pt}
         \end{center}
     \end{titlepage}
@@ -293,8 +291,7 @@
             \vspace{28.4pt}
             %
             %^^A Department and School
-            {\fontsize{12pt}{19.2pt}\selectfont \@department, \@major}\par
-            {\fontsize{12pt}{12pt}\selectfont The Graduate School}\par
+            {\fontsize{12pt}{19.2pt}\selectfont \@department}\par
             \vspace{28.4pt}
             %
             %^^A Supervisor
@@ -308,7 +305,7 @@
             \else
                 for the degree of \@degree\\ by the Evaluation Committee
             \fi
-            }
+            }\par
             \vspace{28.4pt}
             %
             %^^A Date
@@ -332,8 +329,7 @@
             \vspace{26.4pt}
             %
             %^^A University Name
-            {\fontsize{16pt}{22.4pt}\selectfont The Graduate School}\par
-            {\fontsize{16pt}{0pt}\selectfont Kyungpook National University}\par
+            {\fontsize{16pt}{22.4pt}\selectfont Kyungpook National University\\ Graduate School}\par
             \vspace{50pt}
         \end{center}
     \end{titlepage}
@@ -353,7 +349,7 @@
             \vspace{28.4pt}
             %
             %^^A Department and School
-            {\fontsize{12pt}{19.2pt}\selectfont 대학원 \@department \@major}\par
+            {\fontsize{12pt}{19.2pt}\selectfont \@department}\par
             \vspace{28.4pt}
             %
             %^^A Supervisor
@@ -367,7 +363,7 @@
             \else
                 \@author석사 학위논문을 인준함
             \fi
-            }
+            }\par
             \vspace{28.4pt}
             %
             %^^A Date
@@ -398,22 +394,21 @@
     \pagebreak
 }
 \newcommand*{\@abstracteng}{
-    \addcontentsline{toc}{section}{Introduction to the Next Part}
+    \addcontentsline{toc}{section}{영문초록}
     %
     %^^A Header
     \begin{center}
         \singlespacing
         %
         {\fontsize{14pt}{16pt}\selectfont{\@othertitle\footnote{
-        \noindent A thesis submitted to the Council of the Graduate School of Kyungpook National University in partial fulfillment of the requirements for the degree of \@otherdegree in \@otherdate
+        \noindent A thesis submitted to the Council of the Graduate School of Kyungpook National University in partial fulfillment of the requirements for the degree of {\@otherdegree} in \@otherdate.
         }}\par}
         \vspace{20pt}
         %
         {\fontsize{12pt}{14pt}\selectfont{\@otherauthor}\par}
         \vspace{20pt}
         %
-        {\fontsize{10pt}{10pt}\selectfont \@otherdepartment, \@othermajor \par
-        Graduate School, Kyungpook National University}\par
+        {\fontsize{10pt}{10pt}\selectfont \@otherdepartment}\par
         {\fontsize{10pt}{10pt}\selectfont (Supervised by Professor \@othersupervisor)}\par
         \vspace{20pt}
     \end{center}
@@ -425,7 +420,7 @@
     \@abstract
 }
 \newcommand*{\@abstractkor}{
-    \addcontentsline{toc}{section}{Introduction to the Next Part}
+    \addcontentsline{toc}{section}{Korean Abstract}
     %
     %^^A Abstract Header
     \begin{center}
@@ -436,7 +431,8 @@
         {\fontsize{12pt}{14pt}\selectfont{\@otherauthor}\par}
         \vspace{20pt}
         %
-        {\fontsize{10pt}{10pt}\selectfont \@otherdepartment, \@othermajor}\par  {\fontsize{10pt}{10pt}\selectfont (지도교수 \@othersupervisor)}\\
+        {\fontsize{10pt}{10pt}\selectfont \@otherdepartment}\par
+        {\fontsize{10pt}{10pt}\selectfont (지도교수 \@othersupervisor)}\\
         \vspace{20pt}
     \end{center}
     %

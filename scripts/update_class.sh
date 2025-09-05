@@ -74,31 +74,31 @@ for template in master_eng master_kor phd_eng phd_kor ; do
 done
 
 # 3. Build the specified PDFs
-# echo "Building PDFs for specified templates..."
-# for template in "${update_templates[@]}"; do
-#     path="$TEMPLATE_PATH/$template"
-#     echo "Processing: $template"
+echo "Building PDFs for specified templates..."
+for template in "${update_templates[@]}"; do
+    path="$TEMPLATE_PATH/$template"
+    echo "Processing: $template"
     
-#     # Check if template directory exists
-#     if [ ! -d "$path" ]; then
-#         echo "Warning: Directory for template '$template' not found. Skipping."
-#         continue
-#     fi
+    # Check if template directory exists
+    if [ ! -d "$path" ]; then
+        echo "Warning: Directory for template '$template' not found. Skipping."
+        continue
+    fi
 
-#     cd "$path"
+    cd "$path"
 
-#     mkdir -p .temp
+    mkdir -p .temp
     
-#     # Run the LaTeX build process
-#     xelatex --output-directory=.temp main.tex
-#     bibtex .temp/main
-#     xelatex --output-directory=.temp main.tex
-#     xelatex --output-directory=.temp main.tex
+    # Run the LaTeX build process
+    xelatex --output-directory=.temp main.tex
+    bibtex .temp/main
+    xelatex --output-directory=.temp main.tex
+    xelatex --output-directory=.temp main.tex
 
-#     cp -f .temp/main.pdf main.pdf
-#     echo "  -> Generated main.pdf in $path"
-#     cd "$OLDPWD"
-# done
+    cp -f .temp/main.pdf main.pdf
+    echo "  -> Generated main.pdf in $path"
+    cd "$OLDPWD"
+done
 
 if $create_new_zip; then
     echo "Creating zip files..."

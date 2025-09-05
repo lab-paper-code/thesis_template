@@ -37,16 +37,16 @@
 %^^A=======================================
 % 
 \if@iskorean
-    \newcommand{\@ToCheadername}{목\quad차}
-    \newcommand{\@LoTheadername}{<표 차례>}
-    \newcommand{\@LoFheadername}{<그림 차례>}
+    \newcommand{\@ToCheadername}{\fontsize{16pt}{18pt}\selectfont 목\quad차}
+    \newcommand{\@LoTheadername}{\normalfont\fontsize{11pt}{18pt}\selectfont <표 차례>}
+    \newcommand{\@LoFheadername}{\normalfont\fontsize{11pt}{18pt}\selectfont <그림 차례>}
     \newcommand{\@referenceheadername}{참고 문헌}
     \newcommand{\@figurelabelname}{그림}
     \newcommand{\@tablelabelname}{표}
 \else
-    \newcommand{\@ToCheadername}{Content}
-    \newcommand{\@LoTheadername}{List of Tables}
-    \newcommand{\@LoFheadername}{List of Figures}
+    \newcommand{\@ToCheadername}{\fontsize{18pt}{18pt}\selectfont Content}
+    \newcommand{\@LoTheadername}{\fontsize{18pt}{18pt}\selectfont List of Tables}
+    \newcommand{\@LoFheadername}{\fontsize{18pt}{18pt}\selectfont List of Figures}
     \newcommand{\@referenceheadername}{References}
     \newcommand{\@figurelabelname}{Figure}
     \newcommand{\@tablelabelname}{Table}
@@ -81,10 +81,11 @@
 %
 %^^A set font family based on thesis language
 \if@iskorean
-    \setmainfont{NanumGothic}
+    \setmainfont{NanumMyeongjo}
+    \newfontfamily{\coveruniversityfont}{Noto Sans CJK KR}
 \else
     \setmainfont{Times New Roman}
-    \setmainhangulfont[Ligatures=TeX]{NanumGothic} 
+    \setmainhangulfont[Ligatures=TeX]{NanumMyeongjo} 
 \fi
 %
 %^^A set pagenumber font
@@ -135,7 +136,7 @@
 %^^A Table of Contents configuration
 \renewcommand{\contentsname}{
     \begin{center}
-        \fontsize{18pt}{18pt}\selectfont \@ToCheadername
+        \@ToCheadername
     \end{center}
 }
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
@@ -149,10 +150,10 @@
 %^^A List of Figure Configuration
 \renewcommand{\listfigurename}{
     \begin{center}
-        \fontsize{18pt}{18pt}\selectfont \@LoFheadername
+        \@LoFheadername
     \end{center}
 }
-\renewcommand{\cftfigpresnum}{Figure~}
+\renewcommand{\cftfigpresnum}{\@figurelabelname~}
 \renewcommand{\cftfignumwidth}{60pt}
 \renewcommand{\cftfigfont}{{\fontsize{12pt}{12pt}\selectfont}}
 \renewcommand{\cftbeforefigskip}{10pt}
@@ -160,10 +161,10 @@
 %^^A List of Tables Configuration
 \renewcommand{\listtablename}{
     \begin{center}
-        \fontsize{18pt}{18pt}\selectfont \@LoTheadername
+        \@LoTheadername
     \end{center}
 }
-\renewcommand{\cfttabpresnum}{Table~}
+\renewcommand{\cfttabpresnum}{\@tablelabelname~}
 \renewcommand{\cfttabnumwidth}{60pt}
 \renewcommand{\cfttabfont}{{\fontsize{12pt}{12pt}\selectfont}}
 \renewcommand{\cftbeforetabskip}{10pt}
@@ -219,7 +220,6 @@
 \renewcommand*{\author}[2]{\renewcommand{\@author}{#1}\newcommand{\@otherauthor}{#2}}
 \newcommand*{\supervisor}[2]{\newcommand{\@supervisor}{#1}\newcommand{\@othersupervisor}{#2}}
 \newcommand*{\department}[2]{\newcommand{\@department}{#1}\newcommand{\@otherdepartment}{#2}}
-\newcommand*{\major}[2]{\newcommand{\@major}{#1} \newcommand{\@othermajor}{#2}}
 \newcommand*{\degree}[2]{\newcommand{\@degree}{#1} \newcommand{\@otherdegree}{#2}}
 \renewcommand*{\date}[2]{\renewcommand{\@date}{#1} \newcommand{\@otherdate}{#2}}
 \renewcommand{\abstract}[1]{\newcommand{\@abstract}{#1}}
