@@ -29,8 +29,8 @@ The easiest way to get started is to use one of the pre-packaged templates.
 
 1. **Download a Template**: Download the `.zip` file for the template that matches your degree and language needs.
 
-   - **PhD Thesis:** [Korean](https://github.com/lmjantsch/thesis_template/edit/main/README.md), [Engish]()
-   - **Masters Thesis:** [Korean](), [Engish]()
+   - **PhD Thesis:** [Korean](https://github.com/lmjantsch/thesis_template/raw/refs/heads/main/thesis_templates/master_kor.zip), [Engish](https://github.com/lmjantsch/thesis_template/raw/refs/heads/main/thesis_templates/master_eng.zip)
+   - **Masters Thesis:** [Korean](https://github.com/lmjantsch/thesis_template/raw/refs/heads/main/thesis_templates/phd_kor.zip), [Engish](https://github.com/lmjantsch/thesis_template/raw/refs/heads/main/thesis_templates/phd_eng.zip)
 
 2. **Upload to Overleaf**: On your Overleaf dashboard, click "New Project" and select "Upload Project".
 
