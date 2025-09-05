@@ -23,6 +23,7 @@ Help()
 # Set the base path for the templates. Assuming they are in the current directory.
 TEMPLATE_PATH='thesis_templates'
 declare -a update_templates=() # Explicitly declare an array
+create_new_zip=false
 
 # Loop through options
 while [[ "$#" -gt 0 ]]; do
@@ -43,6 +44,11 @@ while [[ "$#" -gt 0 ]]; do
                 echo "Error: '$1' requires a template name as an argument." >&2
                 exit 1
             fi
+            ;;
+        -z|--zip) # create new zip files for all templates
+            update_templates=('master_eng' 'master_kor' 'phd_eng' 'phd_kor')
+            create_new_zip=true
+            shift
             ;;
         *)
             echo "Unknown option: $1" >&2
@@ -68,30 +74,51 @@ for template in master_eng master_kor phd_eng phd_kor ; do
 done
 
 # 3. Build the specified PDFs
-echo "Building PDFs for specified templates..."
-for template in "${update_templates[@]}"; do
-    path="$TEMPLATE_PATH/$template"
-    echo "Processing: $template"
+# echo "Building PDFs for specified templates..."
+# for template in "${update_templates[@]}"; do
+#     path="$TEMPLATE_PATH/$template"
+#     echo "Processing: $template"
     
-    # Check if template directory exists
-    if [ ! -d "$path" ]; then
-        echo "Warning: Directory for template '$template' not found. Skipping."
-        continue
-    fi
+#     # Check if template directory exists
+#     if [ ! -d "$path" ]; then
+#         echo "Warning: Directory for template '$template' not found. Skipping."
+#         continue
+#     fi
 
-    cd "$path"
+#     cd "$path"
 
-    mkdir -p .temp
+#     mkdir -p .temp
     
-    # Run the LaTeX build process
-    xelatex --output-directory=.temp main.tex
-    bibtex .temp/main
-    xelatex --output-directory=.temp main.tex
-    xelatex --output-directory=.temp main.tex
+#     # Run the LaTeX build process
+#     xelatex --output-directory=.temp main.tex
+#     bibtex .temp/main
+#     xelatex --output-directory=.temp main.tex
+#     xelatex --output-directory=.temp main.tex
 
-    cp -f .temp/main.pdf main.pdf
-    echo "  -> Generated main.pdf in $path"
+#     cp -f .temp/main.pdf main.pdf
+#     echo "  -> Generated main.pdf in $path"
+#     cd "$OLDPWD"
+# done
+
+if $create_new_zip; then
+    echo "Creating zip files..."
+    cd "$TEMPLATE_PATH"
+
+    for template in "${update_templates[@]}"; do
+        zip -r "$template.zip" "$template" -x "*/.*"
+
+        # Check the exit status of the zip command.
+        if [ $? -eq 0 ]; then
+            echo "Successfully created '$ZIP_FILE'."
+        else
+            echo "An error occurred during the zipping process."
+            exit 1
+        fi
+    done
     cd "$OLDPWD"
-done
+fi
 
 echo "Script finished successfully."
+
+
+
