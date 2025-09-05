@@ -117,9 +117,9 @@
     \pagenumbering{arabic}
 
     \if@iskorean
-        \onehalfspacing
-    \else
         \doublespacing
+    \else
+        \onehalfspacing
     \fi
 }
 %
@@ -207,11 +207,6 @@
     itemsep=10pt,
     parsep=0pt,
 }
-%^^A \setlist[itemize]{
-%^^A     itemsep=5pt,
-%^^A     before=\singlespacing
-%^^A }
-%^^A Set Figure and Tablename
 \renewcommand{\figurename}{\@figurelabelname}
 \renewcommand{\tablename}{\@tablelabelname}
 %

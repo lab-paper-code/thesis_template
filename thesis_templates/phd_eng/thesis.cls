@@ -119,9 +119,9 @@
     \pagenumbering{arabic}
 
     \if@iskorean
-        \onehalfspacing
-    \else
         \doublespacing
+    \else
+        \onehalfspacing
     \fi
 }
 \newcommand{\backmatter}{
